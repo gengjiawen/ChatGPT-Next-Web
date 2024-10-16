@@ -75,12 +75,12 @@ function convertEndian(word: number) {
   if (LittleEndian) {
     return (
       // byte 1 -> byte 4
+      // byte 4 -> byte 1
       (word >>> 24) |
       // byte 2 -> byte 3
       (((word >>> 16) & 0xff) << 8) |
       // byte 3 -> byte 2
       ((word & 0xff00) << 8) |
-      // byte 4 -> byte 1
       (word << 24)
     );
   } else {
